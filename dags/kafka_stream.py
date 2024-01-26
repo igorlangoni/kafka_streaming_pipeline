@@ -7,12 +7,22 @@ default_args = {
     'start_date': datetime(2024, 1, 1, 10, 00),
 }
 
-def stream_data():
-    import json
+def get_data():
     import requests
 
     res = requests.get('https://randomuser.me/api/')
-    print(res.json())
+    res = res.json()
+    res = res['results'][0]
+
+    return res
+
+def format_data(res):
+    data = {}
+    
+
+def stream_data():
+    import json
+    # print(json.dump(res, indent=3)) --- formats the json nicely
 
 
 
