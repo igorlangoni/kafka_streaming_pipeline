@@ -17,6 +17,8 @@ def get_data():
     res = res.json()
     res = res['results'][0]
 
+    return res
+
     # print(json.dumps(res, indent=3))
 
 
@@ -31,8 +33,8 @@ def format_data(res):
     data['postcode'] = location['postcode']
     data['email'] = res['email']
     data['username'] = res['login']['username']
-    data['dob'] = res['dob']['date']
-    data['registered_date'] = res['registered']['date']
+    data['dob'] = res['dob']['date'][:10]
+    data['registered_date'] = res['registered']['date'][:10]
     data['phone'] = res['phone']
     data['picture'] = res['picture']['medium']
 
@@ -43,7 +45,7 @@ def stream_data():
     import json
     res = get_data()
     res = format_data(res)
-    print(res)
+    print(json.dumps(res, indent=3))
 
 
 with DAG(
