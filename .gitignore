@@ -1,5 +1,5 @@
 .git
-.env
+*.env
 .DS_Store # macOS specific ignore
 airflow_settings.yaml
 __pycache__/
@@ -9,6 +9,6 @@ airflow-webserver.pid
 webserver_config.py
 airflow.cfg
 airflow.db
-.DS_Store
+*.DS_Store
 /stream_pipe_venv
-.yml
+*.yml
